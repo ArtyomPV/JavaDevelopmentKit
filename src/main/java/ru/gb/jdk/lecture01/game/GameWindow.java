@@ -11,7 +11,8 @@ public class GameWindow  extends JFrame {
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setLocation(WINDOW_POSX, WINDOW_POSY);
         setSize(WINDOW_WIDTH, WINDOW_HEIGHT);
-
+        setTitle("TicTacToe");
+        setResizable(false);
         setVisible(true);
     }
 }
