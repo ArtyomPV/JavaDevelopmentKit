@@ -19,11 +19,12 @@ public class GameWindow  extends JFrame {
 
     public GameWindow(){
         setDefaultCloseOperation(EXIT_ON_CLOSE);
-        setLocation(WINDOW_POSX, WINDOW_POSY);
+
         setSize(WINDOW_WIDTH, WINDOW_HEIGHT);
         setTitle("TicTacToe");
         setResizable(false);
 
+        setLocation(WINDOW_POSX, WINDOW_POSY);
         settings = new SettingsWindow(this);
 
         btnExit.addActionListener(new ActionListener() {
