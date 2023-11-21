@@ -39,7 +39,10 @@ public class SettingsWindow extends JFrame {
         btnStart.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                gameWindow.startNewGame(0,3, 3,3);
+                gameWindow.startNewGame(manVsComputer.isSelected()?0:1,
+                        sliderFieldSize.getValue(),
+                        sliderFieldSize.getValue(),
+                        sliderWinLine.getValue());
                 setVisible(false);
             }
         });
@@ -61,6 +64,7 @@ public class SettingsWindow extends JFrame {
         add(labelModeGame);
         groupMode.add(manVsComputer);
         groupMode.add(manVsMan);
+        manVsComputer.setSelected(true);
         add(manVsComputer);
         add(manVsMan);
 
