@@ -51,13 +51,16 @@ public class SettingsWindow extends JFrame {
             @Override
             public void stateChanged(ChangeEvent e) {
                 labelSettedFieldSize.setText(FIELD_SIZE_PREFIX + sliderFieldSize.getValue());
+                labelSettedWinLine.setText(WIN_LINE_PREFIX + sliderFieldSize.getValue());
             }
         });
 
         sliderWinLine.addChangeListener(new ChangeListener() {
             @Override
             public void stateChanged(ChangeEvent e) {
-                labelSettedWinLine.setText(WIN_LINE_PREFIX + sliderWinLine.getValue());
+                if(sliderWinLine.getValue() <= sliderFieldSize.getValue()) {
+                    labelSettedWinLine.setText(WIN_LINE_PREFIX + sliderWinLine.getValue());
+                }
             }
         });
 
