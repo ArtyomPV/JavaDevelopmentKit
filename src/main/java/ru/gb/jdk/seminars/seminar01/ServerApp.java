@@ -10,8 +10,8 @@ public class ServerApp extends JFrame{
     public static int windowWidth = 500;
     public static int windowPosX = 300;
     public static int windowPosY = 300;
-    JButton serverUp = new JButton("Server running");
-    JButton serverDown = new JButton("Server stopped");
+    JButton serverUp = new JButton("Server start");
+    JButton serverDown = new JButton("Server stop");
 
 
     static boolean isServerWorking;
@@ -29,11 +29,19 @@ public class ServerApp extends JFrame{
             public void actionPerformed(ActionEvent e) {
                 isServerWorking = true;
                 serverStatus();
+                serverUp.setText("Server is running");
+                serverDown.setText("Server stop");
             }
         });
         serverDown.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                if(!isServerWorking) {
+                    serverDown.setText("Server is not ON!");
+                } else {
+                    serverDown.setText("Server is OFF!");
+                    serverUp.setText("Server start");
+                }
                 isServerWorking = false;
                 serverStatus();
             }
