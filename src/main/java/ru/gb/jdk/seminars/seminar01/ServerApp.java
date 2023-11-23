@@ -12,7 +12,7 @@ public class ServerApp extends JFrame{
     public static int windowPosY = 300;
     JButton serverUp = new JButton("Server start");
     JButton serverDown = new JButton("Server stop");
-
+    JTextField fieldInfo = new JTextField("Server is OFF");
 
     static boolean isServerWorking;
 
@@ -22,25 +22,25 @@ public class ServerApp extends JFrame{
         setLocation(windowPosX, windowPosY);
         setTitle("my server");
         setResizable(false);
-        setLayout(new GridLayout(1, 2));
+//        setLayout(new GridLayout(2, 1));
         setVisible(true);
+
+        JPanel buttons = new JPanel(new GridLayout(1, 2));
         serverUp.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 isServerWorking = true;
                 serverStatus();
-                serverUp.setText("Server is running");
-                serverDown.setText("Server stop");
+                fieldInfo.setText("Server is running!");
             }
         });
         serverDown.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 if(!isServerWorking) {
-                    serverDown.setText("Server is not ON!");
+                    fieldInfo.setText("Server is not ON!");
                 } else {
-                    serverDown.setText("Server is OFF!");
-                    serverUp.setText("Server start");
+                    fieldInfo.setText("Server is stopped! ");
                 }
                 isServerWorking = false;
                 serverStatus();
@@ -48,9 +48,10 @@ public class ServerApp extends JFrame{
         });
 
 
-
-        add(serverUp);
-        add(serverDown);
+        buttons.add(serverUp);
+        buttons.add(serverDown);
+        add(buttons);
+        add(fieldInfo, BorderLayout.SOUTH);
     }
     public static void serverStatus(){
         System.out.println("Server status: " + isServerWorking);
