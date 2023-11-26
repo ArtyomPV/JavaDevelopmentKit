@@ -1,4 +1,4 @@
-package ru.gb.jdk.lecture01.game;
+package ru.gb.jdk.lectures.lecture01.game;
 
 import javax.swing.*;
 import java.awt.*;
