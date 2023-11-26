@@ -1,6 +1,6 @@
 package ru.gb.jdk;
 
-import ru.gb.jdk.lecture01.game.GameWindow;
+import ru.gb.jdk.lectures.lecture01.game.GameWindow;
 
 public class Main {
     public static void main(String[] args) {
