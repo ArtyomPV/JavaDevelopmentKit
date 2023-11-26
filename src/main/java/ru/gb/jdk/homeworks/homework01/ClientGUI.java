@@ -1,11 +1,17 @@
 package ru.gb.jdk.homeworks.homework01;
 
+import ru.gb.jdk.homeworks.homework01.Controller.Controller;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 
+import java.util.ArrayList;
+import java.util.List;
 public class ClientGUI extends JFrame {
+
+    private List<String> listMessages;
     private static final int WIDTH = 400;
     private static final int HEIGHT = 400;
 
@@ -31,12 +37,24 @@ public class ClientGUI extends JFrame {
     private final JButton btnSend = new JButton("Send");
 
     private void append() {
-        log.append(textLogin.getText() + ": " + textMessage.getText() + "\n");
+        String messageText = textLogin.getText() + ": " + textMessage.getText() + "\n";
+        log.append(messageText);
+        listMessages.add(messageText);
         textMessage.setText(null);
         textMessage.grabFocus();
     }
+    public List<String> getAllMessages(){
+        return listMessages;
+    }
 
-    ClientGUI() {
+    public void setAllMessages(String[] lines){
+        for(String line: lines){
+            log.append(line);
+            log.append("\n");
+        }
+    }
+    ClientGUI(String[] lines) {
+        listMessages = new ArrayList<>();
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
         setSize(WIDTH, HEIGHT);
@@ -66,6 +84,7 @@ public class ClientGUI extends JFrame {
         add(panelBottom, BorderLayout.SOUTH);
 
         log.setAutoscrolls(true);
+        setAllMessages(lines);
         textMessage.addKeyListener(new KeyAdapter() {
             @Override
             public void keyReleased(KeyEvent e) {
@@ -82,5 +101,7 @@ public class ClientGUI extends JFrame {
         btnSend.addActionListener(e -> {
             append();
         });
+
+
     }
 }
