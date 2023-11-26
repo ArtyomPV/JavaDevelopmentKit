@@ -1,6 +1,7 @@
 package ru.gb.jdk.homeworks.homework01.repository;
 
 import java.io.*;
+import java.util.List;
 
 public class RepositoryFile implements Repository {
 //    String pathProject = System.getProperty("user.dir");
@@ -36,7 +37,7 @@ public class RepositoryFile implements Repository {
     }
 
     @Override
-    public void write(String[] lines) throws IOException {
+    public void write(List<String> lines) throws IOException {
         FileOutputStream fileOutputStream = new FileOutputStream(file, true);
         for(String line: lines){
             fileOutputStream.write(line.getBytes());

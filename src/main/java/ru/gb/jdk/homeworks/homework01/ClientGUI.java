@@ -7,15 +7,16 @@ import java.awt.*;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 public class ClientGUI extends JFrame {
-
+    private Controller controller;
     private List<String> listMessages;
     private static final int WIDTH = 400;
     private static final int HEIGHT = 400;
 
-    private final JTextArea log = new JTextArea();
+    private final JTextArea log = new JTextArea("Введите свой логин");
 
     private final JPanel panelTop = new JPanel();
     private final JPanel panelServer = new JPanel(new GridLayout(2, 4));
@@ -36,12 +37,13 @@ public class ClientGUI extends JFrame {
     private final JTextField textMessage = new JTextField();
     private final JButton btnSend = new JButton("Send");
 
-    private void append() {
+    private void append() throws IOException {
         String messageText = textLogin.getText() + ": " + textMessage.getText() + "\n";
         log.append(messageText);
-        listMessages.add(messageText);
+        listMessages.add(messageText + "\n");
         textMessage.setText(null);
         textMessage.grabFocus();
+        controller.save(this.getAllMessages());
     }
     public List<String> getAllMessages(){
         return listMessages;
@@ -55,6 +57,7 @@ public class ClientGUI extends JFrame {
     }
     ClientGUI(String[] lines) {
         listMessages = new ArrayList<>();
+        controller = new Controller("src/main/resources/ru.gb.jdk.homeworks.homework01/ListMessage.txt");
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
         setSize(WIDTH, HEIGHT);
@@ -83,13 +86,22 @@ public class ClientGUI extends JFrame {
         panelBottom.add(btnSend, BorderLayout.EAST);
         add(panelBottom, BorderLayout.SOUTH);
 
+//        panelClient.setEnabled(false);
+        panelClient.setVisible(false);
+
         log.setAutoscrolls(true);
-        setAllMessages(lines);
+
         textMessage.addKeyListener(new KeyAdapter() {
             @Override
             public void keyReleased(KeyEvent e) {
 //                log.setText(KeyEvent.getKeyText(e.getKeyCode()));
-                if (e.getKeyCode() == KeyEvent.VK_ENTER) append();
+                if (e.getKeyCode() == KeyEvent.VK_ENTER) {
+                    try {
+                        append();
+                    } catch (IOException ex) {
+                        throw new RuntimeException(ex);
+                    }
+                }
                 System.out.println(KeyEvent.getKeyText(e.getKeyCode()));
             }
         });
@@ -98,8 +110,22 @@ public class ClientGUI extends JFrame {
         add(log, BorderLayout.CENTER);
         setVisible(true);
 
+
+        btnlogin.addActionListener(e -> {
+            if(!textLogin.getText().isBlank()) {
+                panelClient.setVisible(true);
+                log.setText("");
+                setAllMessages(lines);
+
+            }
+
+        });
         btnSend.addActionListener(e -> {
-            append();
+            try {
+                append();
+            } catch (IOException ex) {
+                throw new RuntimeException(ex);
+            }
         });
 
 

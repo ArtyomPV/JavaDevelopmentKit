@@ -4,6 +4,7 @@ import ru.gb.jdk.homeworks.homework01.ClientGUI;
 import ru.gb.jdk.homeworks.homework01.repository.RepositoryFile;
 
 import java.io.IOException;
+import java.util.List;
 
 public class Controller {
     RepositoryFile repository;
@@ -17,7 +18,7 @@ public class Controller {
         return repository.read();
 
     }
-    public void save(String[] lines) throws IOException {
+    public void save(List<String> lines) throws IOException {
         repository.write(lines);
     }
 }
