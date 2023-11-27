@@ -1,5 +1,7 @@
 package ru.gb.jdk.lectures.lecture02.interfaceRealize;
 
+import ru.gb.jdk.lectures.lecture02.interfaceRealize.canvas.circles.MainWindow;
+
 public class Main {
     public static void main(String[] args) {
         new MainWindow();
