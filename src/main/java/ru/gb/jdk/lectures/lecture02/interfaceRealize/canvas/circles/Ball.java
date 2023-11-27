@@ -1,9 +1,12 @@
-package ru.gb.jdk.lectures.lecture02.interfaceRealize;
+package ru.gb.jdk.lectures.lecture02.interfaceRealize.canvas.circles;
+
+import ru.gb.jdk.lectures.lecture02.interfaceRealize.canvas.common.MainCanvas;
+import ru.gb.jdk.lectures.lecture02.interfaceRealize.canvas.common.Sprite;
 
 import java.awt.*;
 import java.util.Random;
 
-public class Ball extends Sprite{
+public class Ball extends Sprite {
     private static Random rnd = new Random();
     private final Color color;
     private float vX;
@@ -25,7 +28,7 @@ public class Ball extends Sprite{
      * @param deltaTime количество времени на которое чолст отключается
      */
     @Override
-    void update(MainCanvas canvas, float deltaTime){
+    public void update(MainCanvas canvas, float deltaTime){
         x += vX*deltaTime;
         y += vY*deltaTime;
 
@@ -49,7 +52,7 @@ public class Ball extends Sprite{
     }
 
     @Override
-    void render(MainCanvas canvas, Graphics g) {
+    public void render(MainCanvas canvas, Graphics g) {
         g.setColor(color);
         g.fillOval((int)getLeft(), (int)getTop(), (int)getWidth(), (int)getHeight());
     }

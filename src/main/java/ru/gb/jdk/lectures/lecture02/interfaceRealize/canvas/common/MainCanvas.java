@@ -1,4 +1,6 @@
-package ru.gb.jdk.lectures.lecture02.interfaceRealize;
+package ru.gb.jdk.lectures.lecture02.interfaceRealize.canvas.common;
+
+import ru.gb.jdk.lectures.lecture02.interfaceRealize.canvas.circles.MainWindow;
 
 import javax.swing.*;
 import java.awt.*;
@@ -10,7 +12,7 @@ public class MainCanvas extends JPanel {
     private final MainWindow controller;
     // время последнего обновления кадра
     private long lastTimeFrame;
-    MainCanvas(MainWindow controller){
+    public MainCanvas(MainWindow controller){
         this.controller = controller;
         lastTimeFrame = System.nanoTime();
         setBackground(Color.BLUE);

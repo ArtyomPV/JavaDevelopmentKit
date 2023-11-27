@@ -1,4 +1,6 @@
-package ru.gb.jdk.lectures.lecture02.interfaceRealize;
+package ru.gb.jdk.lectures.lecture02.interfaceRealize.canvas.common;
+
+import ru.gb.jdk.lectures.lecture02.interfaceRealize.canvas.common.MainCanvas;
 
 import java.awt.*;
 

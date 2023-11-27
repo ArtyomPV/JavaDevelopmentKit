@@ -1,4 +1,7 @@
-package ru.gb.jdk.lectures.lecture02.interfaceRealize;
+package ru.gb.jdk.lectures.lecture02.interfaceRealize.canvas.circles;
+
+import ru.gb.jdk.lectures.lecture02.interfaceRealize.canvas.common.MainCanvas;
+import ru.gb.jdk.lectures.lecture02.interfaceRealize.canvas.common.Sprite;
 
 import javax.swing.*;
 import java.awt.*;
@@ -11,7 +14,7 @@ public class MainWindow extends JFrame {
 
     private Sprite[] sprites = new Sprite[10];
 
-    MainWindow(){
+    public MainWindow(){
         init();
 
         MainCanvas canvas = new MainCanvas(this);
