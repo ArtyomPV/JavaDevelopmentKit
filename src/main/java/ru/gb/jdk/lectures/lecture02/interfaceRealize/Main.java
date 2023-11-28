@@ -1,10 +1,13 @@
 package ru.gb.jdk.lectures.lecture02.interfaceRealize;
 
 import ru.gb.jdk.lectures.lecture02.interfaceRealize.canvas.circles.MainWindow;
+import ru.gb.jdk.lectures.lecture02.interfaceRealize.samplesInterfaces.*;
+
 
 public class Main {
     public static void main(String[] args) {
         new MainWindow();
+        new ru.gb.jdk.lectures.lecture02.interfaceRealize.canvas.bricks.MainWindow();
 
         Man man = new Man();        // class Man
         Ox ox = new Ox();           // claSS Ox
