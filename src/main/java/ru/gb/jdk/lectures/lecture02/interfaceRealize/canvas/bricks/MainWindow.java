@@ -1,16 +1,15 @@
-package ru.gb.jdk.lectures.lecture02.interfaceRealize.canvas.circles;
+package ru.gb.jdk.lectures.lecture02.interfaceRealize.canvas.bricks;
 
+import ru.gb.jdk.lectures.lecture02.interfaceRealize.canvas.circles.Background;
+import ru.gb.jdk.lectures.lecture02.interfaceRealize.canvas.circles.Ball;
 import ru.gb.jdk.lectures.lecture02.interfaceRealize.canvas.common.CanvasRepaintListener;
 import ru.gb.jdk.lectures.lecture02.interfaceRealize.canvas.common.Interactable;
 import ru.gb.jdk.lectures.lecture02.interfaceRealize.canvas.common.MainCanvas;
-import ru.gb.jdk.lectures.lecture02.interfaceRealize.canvas.common.Sprite;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
 
-public class MainWindow extends JFrame implements CanvasRepaintListener, MouseListener {
+public class MainWindow extends JFrame implements CanvasRepaintListener {
     private static final int POS_X = 400;
     private static final int POS_Y = 200;
     private static final int WINDOW_WIDTH = 800;
@@ -22,7 +21,6 @@ public class MainWindow extends JFrame implements CanvasRepaintListener, MouseLi
         init();
 
         MainCanvas canvas = new MainCanvas(this);
-        canvas.addMouseListener(this);
         add(canvas);
 //        for (Sprite sprite: sprites) {
 //            sprite = new Ball();
@@ -30,7 +28,7 @@ public class MainWindow extends JFrame implements CanvasRepaintListener, MouseLi
 //        }
         sprites[0] = new Background();
         for (int i = 1; i < sprites.length; i++) {
-            sprites[i] = new Ball();
+            sprites[i] = new Brick();
         }
     }
 
@@ -76,30 +74,5 @@ public class MainWindow extends JFrame implements CanvasRepaintListener, MouseLi
         setBounds(POS_X, POS_Y, WINDOW_WIDTH,WINDOW_HEGHT);
         setTitle("Circle");
         setVisible(true);
-    }
-
-    @Override
-    public void mouseClicked(MouseEvent e) {
-
-    }
-
-    @Override
-    public void mousePressed(MouseEvent e) {
-
-    }
-
-    @Override
-    public void mouseReleased(MouseEvent e) {
-        System.out.println("Clicked!");
-    }
-
-    @Override
-    public void mouseEntered(MouseEvent e) {
-
-    }
-
-    @Override
-    public void mouseExited(MouseEvent e) {
-
     }
 }

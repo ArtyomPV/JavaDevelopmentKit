@@ -16,7 +16,6 @@ public class Ball extends Sprite {
         halfHeight = 20 + (float)(Math.random()*50f);
         halfWidth  = halfHeight;
         color = new Color(rnd.nextInt());
-        System.out.println(rnd.nextInt());
         vX = 100f + (float)(Math.random()*200f);
         vY = (float) (100f + Math.random()*200f);
 

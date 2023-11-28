@@ -9,10 +9,10 @@ import java.awt.*;
  * MainCanvas вызывает метод onDrawFrame основного окна и имеет ссылку на основное окно
  */
 public class MainCanvas extends JPanel {
-    private final MainWindow controller;
+    private final CanvasRepaintListener controller;
     // время последнего обновления кадра
     private long lastTimeFrame;
-    public MainCanvas(MainWindow controller){
+    public MainCanvas(CanvasRepaintListener controller){
         this.controller = controller;
         lastTimeFrame = System.nanoTime();
         setBackground(Color.BLUE);

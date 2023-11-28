@@ -8,7 +8,7 @@ import java.awt.*;
  * класс Sprite описывает поведние объекта и его свойства
  * за координаты объекта берется центр объекта
  */
-public abstract class Sprite {
+public abstract class Sprite implements Interactable{
     protected float x;
     protected float y;
     protected float halfWidth;
