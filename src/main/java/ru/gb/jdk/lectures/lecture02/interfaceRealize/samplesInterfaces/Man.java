@@ -1,6 +1,8 @@
-package ru.gb.jdk.lectures.lecture02.interfaceRealize;
+package ru.gb.jdk.lectures.lecture02.interfaceRealize.samplesInterfaces;
 
-public class Man implements Human{
+import ru.gb.jdk.lectures.lecture02.interfaceRealize.samplesInterfaces.Human;
+
+public class Man implements Human {
 
     @Override
     public void walk() {
