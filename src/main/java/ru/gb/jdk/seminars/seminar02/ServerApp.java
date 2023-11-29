@@ -17,7 +17,7 @@ public class ServerApp extends JFrame implements Listener{
     JTextField fieldInfo = new JTextField("Server is OFF");
 
     static boolean isServerWorking;
-    Server server;
+    ServerListener server;
     List<String> logs = new ArrayList<>();
     ServerApp(){
         server = new Server(this);
@@ -33,7 +33,8 @@ public class ServerApp extends JFrame implements Listener{
         serverUp.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                server.start();
+//                server.start();
+                server.serverListener(true);
 //                isServerWorking = true;
 //                serverStatus();
 //                fieldInfo.setText("Server is running!");
@@ -42,7 +43,8 @@ public class ServerApp extends JFrame implements Listener{
         serverDown.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                server.stop();
+//                server.stop();
+                server.serverListener(false);
 //                if(!isServerWorking) {
 //                    fieldInfo.setText("Server is not ON!");
 //                } else {
