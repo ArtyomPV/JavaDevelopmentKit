@@ -10,13 +10,13 @@ public class ChatApp extends JFrame {
     public static int windowWidth = 500;
     public static int windowPosX = 300;
     public static int windowPosY = 300;
-
+    private final String[] names = {"Ivan", "Artyom", "Petr"};
     JLabel labelLogin = new JLabel("Enter login:");
     JLabel labelPassword = new JLabel("Enter password:");
     JLabel labelIP = new JLabel("Enter IP:");
     JLabel labeSendMessage = new JLabel("Enter message:");
     JLabel labeMessage = new JLabel("Comming message:");
-
+    JList<String> users = new JList<>(names);
     JTextField fieldLogin = new JTextField("Enter login");
     JTextField fieldPassword = new JTextField();
     JTextField fieldIP = new JTextField();
@@ -55,6 +55,7 @@ ChatApp(){
     chatClient.add(labeMessage);
     chatClient.add(areaChat);
     buttons.add(btnSend);
+
 
 
 
