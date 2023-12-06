@@ -8,6 +8,7 @@ public class MainApp {
     public static void main(String[] args) {
         task1();
         task2();
+        task3();
 
 
 
@@ -39,6 +40,20 @@ public class MainApp {
         System.out.println("=================");
         System.out.println(list.getLength());
 
+
+    }
+
+    public static void task3(){
+        Number[] numArray = new Number[3];
+        numArray[0] = 1;
+        numArray[1] = 2.0f;
+        numArray[2] = 3L;
+        MyList<Number> list = new MyList<>(numArray);
+        list.printArray();
+
+        for(Number number: list){
+            System.out.println(number);
+        }
 
     }
 }

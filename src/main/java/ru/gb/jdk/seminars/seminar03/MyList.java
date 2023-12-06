@@ -2,8 +2,9 @@ package ru.gb.jdk.seminars.seminar03;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Iterator;
 
-public class MyList<E> {
+public class MyList<E> implements Iterable<E>{
     ArrayList<E> arr;
     private int size;
     private E[] array;
@@ -48,4 +49,29 @@ public class MyList<E> {
 
     }
 
+    @Override
+    public Iterator<E> iterator() {
+        return new MyListIterator();
+    }
+
+    class MyListIterator implements Iterator<E>{
+        int index ;
+        E[] iterArray;
+
+        public MyListIterator() {
+            this.index = 0;
+            iterArray = array;
+        }
+
+        @Override
+        public boolean hasNext() {
+            return index < getLength();
+        }
+
+        @Override
+        public E next() {
+            return array[index++];
+        }
+    }
 }
+
