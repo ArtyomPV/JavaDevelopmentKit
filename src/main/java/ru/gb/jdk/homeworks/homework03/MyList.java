@@ -31,8 +31,8 @@ public class MyList<E> implements Iterable<E>{
             if (element != null) {
                 System.out.print(element + ", ");
             }
-            System.out.println();
         }
+            System.out.println();
     }
 
     public void removeElement(int index) {
