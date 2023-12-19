@@ -15,7 +15,7 @@ public class Main {
 
         File srcDir = new File(srcFolder);
 
-        System.out.println(srcDir.isFile());
+
         long start = System.currentTimeMillis();
         File[] files = srcDir.listFiles();
 
@@ -31,6 +31,13 @@ public class Main {
 
         resizer1.start();
         resizer2.start();
+//    ------------------- Использование Runnable -----------------
+
+        ImageResizerRunnable resizerRunnable1 = new ImageResizerRunnable(files1, newWidth,dstFolder, start);
+        ImageResizerRunnable resizerRunnable2 = new ImageResizerRunnable(files2, newWidth,dstFolder, start);
+        new Thread(resizerRunnable1).start();
+        new Thread(resizerRunnable2).start();
+
 
 
     }

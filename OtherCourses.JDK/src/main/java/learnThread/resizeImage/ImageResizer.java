@@ -22,7 +22,6 @@ public class ImageResizer extends Thread{
         try {
             if (files != null) {
                 for (File file : files) {
-                    System.out.println(file);
                     BufferedImage image = ImageIO.read(file);
                     if(image == null){
                         continue;
@@ -51,7 +50,7 @@ public class ImageResizer extends Thread{
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-        System.out.println("Finished aftr start: " + (System.currentTimeMillis()-start));
+        System.out.println("Finished after start: " + (System.currentTimeMillis()-start));
     }
 
 }
