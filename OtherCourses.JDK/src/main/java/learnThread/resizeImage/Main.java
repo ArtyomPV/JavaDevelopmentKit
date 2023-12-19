@@ -19,38 +19,19 @@ public class Main {
         long start = System.currentTimeMillis();
         File[] files = srcDir.listFiles();
 
-        try {
-            if (files != null) {
-                for (File file : files) {
-                    System.out.println(file);
-                    BufferedImage image = ImageIO.read(file);
-                    if(image == null){
-                        continue;
-                    }
+        int middle = files.length/2;
 
-                    int newHeght = (int)Math.round(
-                            image.getHeight()/(image.getWidth()/(double) newWidth)
-                    );
-                    BufferedImage newImage = new BufferedImage(
-                            newWidth, newHeght, BufferedImage.TYPE_INT_RGB
-                    );
-                    int widthStep = image.getWidth()/newWidth;
-                    int heightStep = image.getHeight()/newHeght;
+        File[] files1 = new File[middle];
+        System.arraycopy(files, 0, files1, 0, files1.length);
+        ImageResizer resizer1 = new ImageResizer(files1, newWidth,dstFolder, start);
 
-                    for (int x = 0; x < newWidth; x++) {
-                        for (int y = 0; y < newHeght; y++) {
-                            int rgb = image.getRGB(x * widthStep, y * heightStep);
-                            newImage.setRGB(x, y, rgb);
-                        }
-                    }
+        File[] files2 = new File[files.length-middle];
+        System.arraycopy(files, middle, files2, 0, files2.length);
+        ImageResizer resizer2 = new ImageResizer(files2, newWidth,dstFolder, start);
 
-                    File newFile = new File(dstFolder + "/" + file.getName());
-                    ImageIO.write(newImage, "jpg", newFile);
-                }
-            }
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-        System.out.println("Duration: " + (System.currentTimeMillis() - start));
+        resizer1.start();
+        resizer2.start();
+
+
     }
 }
