@@ -1,4 +1,4 @@
-package learnThread.resizeImage;
+package learnThread.race;
 
 public class MainApp {
     public static void main(String[] args) {
