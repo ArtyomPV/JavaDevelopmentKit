@@ -19,7 +19,7 @@ public class Main {
 //            }).start();
 //        }
 
-        Thread tic = new Thread(new TicTac("{}}"));
+        Thread tic = new Thread(new TicTac("{"));
         Thread tac = new Thread(new TicTac("}"));
 //        tic.setDaemon(true);
 //        tac.setDaemon(true);

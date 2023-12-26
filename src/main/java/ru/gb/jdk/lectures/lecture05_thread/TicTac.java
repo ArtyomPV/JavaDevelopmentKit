@@ -10,7 +10,7 @@ public class TicTac implements Runnable{
     @Override
     public void run() {
         while(true){
-            System.out.println(bracket);
+            System.out.print(bracket);
             try {
                 Thread.sleep(300);
             } catch (InterruptedException e) {
