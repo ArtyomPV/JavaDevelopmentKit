@@ -2,7 +2,7 @@ package learnThread.useVolatile;
 
 public class Task implements Runnable{
     private long counter;
-    private boolean isRunning;
+    private volatile boolean isRunning;
     public Task(){
         isRunning = true;
     }
